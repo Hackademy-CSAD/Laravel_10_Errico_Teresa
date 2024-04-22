@@ -1,7 +1,8 @@
-{{-- <x-layout>
+<x-layout>
 
 
-    <form method="POST" action="{{route('forgot-password')}}">@csrf
+    <form method="POST" action="{{route('forgot-password')}}">
+        @csrf
         <div class="mb-3">
             <label for="email" class="form-label">E-Mail Address:</label>
             <input type="email" class="form-control" id="email" name="email" value="{{old('email')}}">
@@ -10,4 +11,7 @@
     </form>
 
 
-</x-layout> --}}
+</x-layout>
+
+
+

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Song;
 use Illuminate\Http\Request;
 use App\Http\Requests\SongEditRequest;
@@ -24,7 +25,8 @@ class SongController extends Controller
      */
     public function create()
     {
-        return view('songs.create');
+        $categories = Category::all();
+        return view('songs.create', compact('categories'));
     }
 
     /**
@@ -36,6 +38,7 @@ class SongController extends Controller
             "name" => $request->name,
             "year" => $request->year,
             "img" => $request->file('img')->store('public/img'),
+            "category_id"=>$request->category_id,
         ]);
         return redirect(route('songs.create'))->with('success', 'Hai inserito correttamente il nome della tua canzone preferita!');
     }
@@ -53,7 +56,9 @@ class SongController extends Controller
      */
     public function edit(Song $song)
     {
-        return view('songs.edit', compact('song'));
+        $categories = Category::all();
+
+        return view('songs.edit', compact('song','categories'));
     }
 
     /**
@@ -65,6 +70,7 @@ class SongController extends Controller
             "name"=>$request->name,
             "year"=>$request->year,
             "img"=>$request->img ? $request->file('img')->store('public/img') :$song->img, 
+            "category_id"=>$request->category_id,
         ]);
         return redirect(route('songs.edit', compact('song')))->with('success', 'Hai aggiornato correttamente i dati relativi alla tua canzone!');
     }
@@ -77,14 +83,7 @@ class SongController extends Controller
         $song->delete();
         return redirect(route('songs.create'))->with('success', 'Canzone eliminata con successo!');
     }
-    // public function forgot_password(){
-    //     return view('auth.forgot-password');
-    // }
-    // public function forgott_password($request){
-    //    Song::create([
-    //     "email"=>$request->email,
-    //    ]);
-    // }
+
 }
 
 

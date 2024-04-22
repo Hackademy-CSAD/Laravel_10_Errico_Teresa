@@ -1,6 +1,6 @@
 <x-layout>
 
-    <h1 class="text-center">All songs</h1>
+    <h1 class="text-center fw-light pt-3">All songs</h1>
     <div class="container-fluid">
         <div class="row justify-content-center align-items-center">
             @foreach ($songs as $song)

@@ -17,7 +17,7 @@
                         <input type="password" class="form-control" id="password" name="password" alue="{{old('password')}}">
                     </div>
                     <button type="submit" class="btn btn-primary">Login</button>
-                    <a href="{{route('forgot-password')}}"><button>Password dimenticata?</button></a>
+                    {{-- <a href="{{route('forgot-password')}}"><button>Password dimenticata?</button></a> --}}
                 </form>
             </div>
         </div>

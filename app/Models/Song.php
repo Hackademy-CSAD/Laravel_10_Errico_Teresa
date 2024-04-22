@@ -8,5 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Song extends Model
 {
     use HasFactory;
-    protected $fillable = ["name", "year", "img"];
+    protected $fillable = ["name", "year", "img", "category_id"];
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }
