@@ -1,0 +1,7 @@
+.header-home{
+    height: 850px;
+    background-image: url(/public/Media/header.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
